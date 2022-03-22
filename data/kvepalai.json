@@ -2,7 +2,7 @@
     "name": "Raudoni kvepalai",
     "price": {
         "value": 15.00,
-        "curency": "Eur"
+        "currency": "Eur"
     },
     "inStock": 4,
     "sold": 7

@@ -2,7 +2,7 @@
     "name": "Juoda arbata",
     "price": {
         "value": 2.22,
-        "curency": "Eur"
+        "currency": "Eur"
     },
     "inStock": 10,
     "sold": 20
