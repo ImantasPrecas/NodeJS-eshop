@@ -49,11 +49,11 @@ const readFile = require("./lib/readFile.js");
 		5,
 		true,
 		false,
-		null,
+		// null,
 		() => {},
 		[],
 		{},
-		undefined,
+		// undefined,
 		"masina-wrong-37",
 	];
 
@@ -77,7 +77,5 @@ const readFile = require("./lib/readFile.js");
 	console.log('"Univermagas" pardavime turi:');
 	console.log("------------------------------");
 	console.log(printList(goodsInfo));
-	console.log(printList(goods));
-
 	console.log("------------------------------");
 })();
