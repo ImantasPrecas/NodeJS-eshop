@@ -5,6 +5,7 @@ const inStockTotalcount = require("./lib/inStockTotalcount.js");
 const IsValid = require("./lib/isValid.js");
 const soldTotalCount = require("./lib/soldTotalCount.js");
 const profit = require("./lib/profit.js");
+const futureProfit = require("./lib/futureProfit.js");
 
 (async () => {
 	const goods = [
@@ -94,6 +95,7 @@ const profit = require("./lib/profit.js");
 
 		goodsInfo.push(itemObj);
 	}
+
 	console.log('"Univermagas" pardavime turi:');
 	console.log("------------------------------");
 	console.log(printList(goodsInfo));
@@ -103,9 +105,9 @@ const profit = require("./lib/profit.js");
 
 	console.log(inStockTotalcount(goodsInfo));
 	console.log(soldTotalCount(goodsInfo));
-	console.log(profit(goodsInfo));
+	console.log(profit(goodsInfo), ` Eur`);
+	console.log(futureProfit(goodsInfo), ` Eur`);
 
-	console.log(` - galimu pardavimu: [total pinigu] [valiuta]`);
 	console.log(
 		` - maksimali galima parduotuves apyvarta: [total pinigu] [valiuta]`
 	);
