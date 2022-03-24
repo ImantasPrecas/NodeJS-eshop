@@ -6,6 +6,7 @@ const IsValid = require("./lib/isValid.js");
 const soldTotalCount = require("./lib/soldTotalCount.js");
 const profit = require("./lib/profit.js");
 const futureProfit = require("./lib/futureProfit.js");
+const overalProfit = require("./lib/overalProfit.js");
 
 (async () => {
 	const goods = [
@@ -95,7 +96,9 @@ const futureProfit = require("./lib/futureProfit.js");
 
 		goodsInfo.push(itemObj);
 	}
-
+	const overalFutureProfit =
+		+profit(goodsInfo) + parseFloat(futureProfit(goodsInfo));
+	const ovrFutProfRound = Math.round(overalFutureProfit * 100) / 100;
 	console.log('"Univermagas" pardavime turi:');
 	console.log("------------------------------");
 	console.log(printList(goodsInfo));
@@ -103,12 +106,21 @@ const futureProfit = require("./lib/futureProfit.js");
 	console.log("Parduotuves suvestine:");
 	console.log("------------------------------");
 
-	console.log(inStockTotalcount(goodsInfo));
-	console.log(soldTotalCount(goodsInfo));
-	console.log(profit(goodsInfo), ` Eur`);
-	console.log(futureProfit(goodsInfo), ` Eur`);
+	console.log(`- turimu prekiu sandelyje: ${inStockTotalcount(goodsInfo)}`);
+	console.log(`- parduotu prekiu: ${soldTotalCount(goodsInfo)} `);
+	console.log(`- suprekiauta suma: ${profit(goodsInfo)} Eur`);
+	console.log(`- galimu pardavimu: ${futureProfit(goodsInfo)} Eur`);
 
+	// Neisspresta. nesuprantu kodel profit plliusuojasi kas kart isloginant...
 	console.log(
-		` - maksimali galima parduotuves apyvarta: [total pinigu] [valiuta]`
+		`- maksimali galima parduotuves apyvarta: ${ovrFutProfRound} Eur`
 	);
+
+	console.log("-----------------");
+	console.log(profit(goodsInfo));
+	console.log(profit(goodsInfo));
+	console.log(+futureProfit(goodsInfo));
+	console.log(overalFutureProfit);
+
+	console.log("-----------------");
 })();
